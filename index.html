@@ -18,14 +18,14 @@
 
 <body>
   <!-- wrap whole page in a container -->
-  <div class="container teal lighten-2 vh-95">
+  <div class="container vh-95">
     <div class="row h-100">
       <!-- left column -->
       <div class="col s4 h-100">
-        <div class="card h-100">
+        <div class="card h-100 grey darken-1">
           <div class="card-content">
             
-            <h3>TRAIN SCHEDULER</h3>
+            <h3 class="white-text">TRAIN SCHEDULER</h3>
           
             <br>
             <hr>
@@ -33,20 +33,20 @@
               <!-- <span class="card-title">Add Train</span> -->
 
               <div class="input-field col s12">
-                  <input id="trainNameInput" type="text" class="validate">
+                  <input id="trainNameInput" type="text" class="validate white-text">
                   <label for="trainNameInput">Train name</label>
               </div>
               <div class="input-field col s12">
-                  <input id="destinationInput" type="text" class="validate">
+                  <input id="destinationInput" type="text" class="validate white-text">
                   <label for="destinationInput">Destination</label>
               </div>
               <div class="input-field col s12">
-                  <input type="text" class="timepicker" id="firstTrainInput">
+                  <input type="text" class="timepicker white-text" id="firstTrainInput">
                   <label for="firstTrainInput">First Train</label>
               </div>
               <div class="input-field col s12">
                   <label for="frequencyInput">Frequency</label>
-                  <p class="range-field">
+                  <p class="range-field white-text">
                       <input type="range" id="frequencyInput" min="0" max="120" >
                     </p>   
               </div>
@@ -63,12 +63,7 @@
           <br>
           <br>
           <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
+          
         </div>
 
        
@@ -78,8 +73,14 @@
 
       <!-- right column -->
       <div class="col s8">
-        <div class="container">
-
+        
+          <br>
+          <br>
+            <div class="section">
+                <h5>Current Train Schedule</h5>
+              </div>
+              <br>
+          <div class="divider"></div>
           <table class="striped centered">
             <thead>
               <tr>
@@ -95,7 +96,7 @@
               <!-- new train goes here -->
             </tbody>
           </table>
-        </div>
+        
 
         <!-- END: right column  -->
       </div>
@@ -109,12 +110,6 @@
   </div>
 
 
-  <!-- footer -->
-  <footer class="container page-footer valign-wrapper">
-    <div class="container center-align">
-      © 2019 Young Chi
-    </div>
-  </footer>
 
 
 
