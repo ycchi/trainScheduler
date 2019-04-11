@@ -56,19 +56,39 @@ database.ref().on("child_added", function(childSnapshot) {
   var DBfirstTrain = childSnapshot.val().firstTrain;
   var DBtrainFrequency = childSnapshot.val().trainFrequency;
 
-  var nextTrain;
-  var minutesAway;
 
+  var firstTrainConverted = moment(DBfirstTrain, "HH:mm A").subtract(1, "years");
+  console.log(firstTrainConverted);
 
+  // Current Time
+  var currentTime = moment();
+  console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm A"));
 
+  // Difference between the times
+  var diffTime = moment().diff(moment(firstTrainConverted), "minutes");
+  console.log("DIFFERENCE IN TIME: " + diffTime);
 
-  console.log("DBfirstTrain: " + DBfirstTrain)
+  // Time apart (remainder)
+  var tRemainder = diffTime % DBtrainFrequency;
+  console.log(tRemainder);
+
+  // Minute Until Train
+  var minutesAway = DBtrainFrequency - tRemainder;
+  console.log("MINUTES TILL TRAIN: " + minutesAway);
+
+  // Next Train
+  var nextTrain = moment().add(minutesAway, "minutes");
+  console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+
+  // format next train
+  var nextTrainConverted = moment(nextTrain).format("hh:mm");
+
   // write on table
   var newRow = $("<tr>").append(
     $("<td>").text(DBtrainName),
     $("<td>").text(DBtrainDestination),
     $("<td>").text(DBtrainFrequency),
-    $("<td>").text(nextTrain),
+    $("<td>").text(nextTrainConverted),
     $("<td>").text(minutesAway)
   );
   
